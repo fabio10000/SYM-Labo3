@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ch.heigvd.iict.sym.labo03.databinding.FragmentIBeaconBinding
 
-class IBeaconFragment : Fragment() {
+class BeaconFragment : Fragment() {
 
-    private lateinit var IBeaconViewModel: IBeaconViewModel
+    private lateinit var beaconViewModel: BeaconViewModel
     private var _binding: FragmentIBeaconBinding? = null
 
     // This property is only valid between onCreateView and
@@ -23,15 +23,15 @@ class IBeaconFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        IBeaconViewModel =
-            ViewModelProvider(this).get(IBeaconViewModel::class.java)
+    ): View {
+        beaconViewModel =
+            ViewModelProvider(this).get(BeaconViewModel::class.java)
 
         _binding = FragmentIBeaconBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        IBeaconViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textIBeacon
+        beaconViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

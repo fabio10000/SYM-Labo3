@@ -30,7 +30,7 @@ class CodeBarresFragment : Fragment() {
         _binding = FragmentCodeBarresBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+        val textView: TextView = binding.textCodeBarres
         codeBarresViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

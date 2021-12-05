@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class NfcViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is NFC Fragment"
     }
     val text: LiveData<String> = _text
 }

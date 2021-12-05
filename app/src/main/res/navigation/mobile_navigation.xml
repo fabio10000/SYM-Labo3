@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_i_beacon"
-        android:name="ch.heigvd.iict.sym.labo03.ui.i_beacon.IBeaconFragment"
+        android:name="ch.heigvd.iict.sym.labo03.ui.i_beacon.BeaconFragment"
         android:label="@string/title_i_beacon"
         tools:layout="@layout/fragment_i_beacon" />
 </navigation>

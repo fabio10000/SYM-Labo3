@@ -30,7 +30,7 @@ class NfcFragment : Fragment() {
         _binding = FragmentNfcBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        val textView: TextView = binding.textNfc
         nfcViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

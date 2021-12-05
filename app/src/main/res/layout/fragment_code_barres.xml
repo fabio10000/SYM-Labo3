@@ -7,7 +7,7 @@
     tools:context=".ui.code_barres.CodeBarresFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/text_code_barres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
