@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">SYM-Labo3</string>
-    <string name="title_nfc">NFC</string>
-    <string name="title_code_barres">Code barres</string>
-    <string name="title_i_beacon">iBeacon</string>
+    <string name="app_name">labo3</string>
+    <string name="barCode_btn">code-barre</string>
+    <string name="beacon_btn">Beacon</string>
+    <string name="nfc_btn">NFC</string>
+
 </resources>
