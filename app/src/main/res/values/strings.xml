@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">labo3</string>
+    <string name="app_name">SYM - labo3</string>
     <string name="barCode_btn">code-barre</string>
+    <string name="scan_btn">Scan</string>
+
     <string name="beacon_btn">Beacon</string>
     <string name="nfc_btn">NFC</string>
 
