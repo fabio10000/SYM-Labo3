@@ -1,63 +1,70 @@
 package ch.heivd.iict.sym.labo3
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-
-import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanOptions
-import com.journeyapps.barcodescanner.ScanIntentResult
-
-import android.graphics.BitmapFactory
+import androidx.appcompat.app.AppCompatActivity
+import com.google.zxing.client.android.BeepManager
+import com.journeyapps.barcodescanner.BarcodeCallback
+import com.journeyapps.barcodescanner.BarcodeResult
+import com.journeyapps.barcodescanner.DecoratedBarcodeView
+import com.journeyapps.barcodescanner.DefaultDecoderFactory
+import com.google.zxing.BarcodeFormat
+import java.util.*
 
 class BarCodeActivity : AppCompatActivity(){
 
-    private lateinit var scan_btn: Button
-    private lateinit var barCode_img: ImageView
-    private lateinit var content_txt: TextView
+    private lateinit var barcode_view: DecoratedBarcodeView // the view for scanning barcodes
+    private lateinit var beep_manager: BeepManager // manage sound after successfully scanned barcodes
+    private lateinit var content_txt: TextView // used to display decoded data
+    private lateinit var barCode_img: ImageView // used to display scanned barcode
 
+    // called if a barcode is scanned
+    private val callback: BarcodeCallback = object : BarcodeCallback {
+        override fun barcodeResult(result: BarcodeResult) {
 
-    // Register the launcher and result handler
-    private val barcodeLauncher = registerForActivityResult(ScanContract()) {
-        result: ScanIntentResult ->
-        if (result.contents == null) {
-            Toast.makeText(this@BarCodeActivity, "Scanned cancelled", Toast.LENGTH_LONG).show()
-        } else {
+            // prevent duplicate scans
+            if(result.text == null || result.text.equals(content_txt.text)) {
+                return
+            }
 
-            // display the image of bar code and content of what was decoded
-            scan_btn.setText("Scan again")
-            barCode_img.setImageBitmap(BitmapFactory.decodeFile(result.barcodeImagePath))
-            content_txt.setText("Contenu décodé : \n\n" + result.contents) // TODO add label?
-
-            //"Scanned :" + result.contents + "\n" + "ImagePath : " + result.barcodeImagePath,
-            Toast.makeText(this@BarCodeActivity, "Scanned successfully", Toast.LENGTH_LONG).show()
+            beep_manager.playBeepSoundAndVibrate()
+            barCode_img.setImageBitmap(result.getBitmapWithResultPoints(Color.YELLOW))
+            content_txt.text = result.text
         }
     }
 
+    @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        beep_manager = BeepManager(this)
+
+        // map elements with layout
         setContentView(R.layout.activity_bar_code)
-
-        scan_btn = findViewById(R.id.bar_code_scan_bt)
-        barCode_img = findViewById(R.id.bar_code_image)
+        barcode_view = findViewById(R.id.barcode_scanner)
         content_txt = findViewById(R.id.bar_code_txt_content)
+        barCode_img = findViewById(R.id.bar_code_image)
 
+        // set barcode formats to 2D (QR_CODE) and 1D (CODE_39)
+        val formats: Collection<BarcodeFormat> =
+            Arrays.asList(BarcodeFormat.QR_CODE, BarcodeFormat.CODE_39)
+        barcode_view.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
 
-        scan_btn.setOnClickListener {
+        barcode_view.initializeFromIntent(intent)
 
-            // customize scan option
-            val scanOptions = ScanOptions()
-            scanOptions.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
-            scanOptions.setPrompt("Scan anything")
-            scanOptions.setOrientationLocked(false)
-            scanOptions.setBarcodeImageEnabled(true)
+        barcode_view.decodeContinuous(callback)
 
-            // launch scanner
-            barcodeLauncher.launch(scanOptions)
-        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        barcode_view.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        barcode_view.pause()
     }
 }
