@@ -1,4 +1,4 @@
-package ch.heivd.iict.sym.labo3
+package ch.heigvd.iict.sym.labo3
 
 import android.graphics.Color
 import android.os.Bundle

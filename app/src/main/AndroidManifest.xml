@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ch.heivd.iict.sym.labo3">
+    package="ch.heigvd.iict.sym.labo3">
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -14,7 +14,7 @@
         android:hardwareAccelerated="true">
 
         <activity
-            android:name=".BarCodeActivity"
+            android:name="ch.heigvd.iict.sym.labo3.BarCodeActivity"
             android:exported="true"/>
 
         <activity
@@ -24,7 +24,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name="ch.heigvd.iict.sym.labo3.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
