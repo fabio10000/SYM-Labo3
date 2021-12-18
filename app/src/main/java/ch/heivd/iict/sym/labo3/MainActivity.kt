@@ -1,5 +1,6 @@
 package ch.heivd.iict.sym.labo3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,5 +18,10 @@ class MainActivity : AppCompatActivity() {
         barCode_btn = findViewById(R.id.main_barCode_bt)
         beacon_btn = findViewById(R.id.main_beacon_bt)
         nfc_btn = findViewById(R.id.main_nfc_bt)
+        
+        
+        beacon_btn.setOnClickListener{
+            startActivity(Intent(this, BeaconActivity::class.java))
+        }
     }
 }
