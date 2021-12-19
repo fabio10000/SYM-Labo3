@@ -1,9 +1,11 @@
-package ch.heigvd.iict.sym.labo3
+package ch.heivd.iict.sym.labo3
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import ch.heigvd.iict.sym.labo3.LoginActivity
+import ch.heigvd.iict.sym.labo3.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         nfc_btn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+        }
+
+
+        beacon_btn.setOnClickListener{
+            startActivity(Intent(this, BeaconActivity::class.java))
         }
     }
 }
