@@ -6,7 +6,8 @@
     <string name="login_txt">Username</string>
     <string name="password_txt">Password</string>
     <string name="login_btn">Connect</string>
-    <string name="low_security_txt">Min security</string>
-    <string name="medium_security_txt">Medium security</string>
-    <string name="high_security_txt">Max security</string>
+    <string name="waiting_nfc_scan">Scan your nfc tag to login into the application</string>
+    <string name="low_security_txt">You are logged in with: Min security</string>
+    <string name="medium_security_txt">You are logged in with: Medium security</string>
+    <string name="high_security_txt">You are logged in with: Max security</string>
 </resources>
