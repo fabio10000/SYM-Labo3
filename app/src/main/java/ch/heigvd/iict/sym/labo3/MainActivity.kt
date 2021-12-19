@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         nfc_btn = findViewById(R.id.main_nfc_bt)
 
         nfc_btn.setOnClickListener {
-            val intent = Intent(this, NFCActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
