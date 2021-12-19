@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        barCode_btn.setOnClickListener {
+            val intent = Intent(this, BarCodeActivity::class.java)
+            startActivity(intent)
+        }
 
         beacon_btn.setOnClickListener{
             startActivity(Intent(this, BeaconActivity::class.java))
