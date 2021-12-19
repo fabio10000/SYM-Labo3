@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordInput.text?.toString()
 
             //hardcoded credentials
-            if (username == "user" && password == "password") {
+            if (username == ALLOWED_USER && password == ALLOWED_PASSWORD) {
                 val intent = Intent(this, NFCActivity::class.java)
                 startActivity(intent)
             } else {
@@ -36,5 +36,10 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
         }
+    }
+
+    companion object {
+        const val ALLOWED_USER      = "user"
+        const val ALLOWED_PASSWORD  = "password"
     }
 }
