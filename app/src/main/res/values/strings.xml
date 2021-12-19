@@ -5,5 +5,11 @@
 
     <string name="beacon_btn">Beacon</string>
     <string name="nfc_btn">NFC</string>
-
+    <string name="login_txt">Username</string>
+    <string name="password_txt">Password</string>
+    <string name="login_btn">Connect</string>
+    <string name="waiting_nfc_scan">Scan your nfc tag to login into the application</string>
+    <string name="low_security_txt">You are logged in with: Min security</string>
+    <string name="medium_security_txt">You are logged in with: Medium security</string>
+    <string name="high_security_txt">You are logged in with: Max security</string>
 </resources>
