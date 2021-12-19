@@ -96,17 +96,17 @@ class BeaconActivity : AppCompatActivity()  {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Demander l'access à la localisation
             if ((this.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
-                var  builder =  AlertDialog.Builder(this);
-                builder.setTitle("This app needs location access");
-                builder.setMessage("Please grant location access so this app can detect beacons.");
-                builder.setPositiveButton(android.R.string.ok, null);
+                var  builder =  AlertDialog.Builder(this)
+                builder.setTitle("This app needs location access")
+                builder.setMessage("Please grant location access so this app can detect beacons.")
+                builder.setPositiveButton(android.R.string.ok, null)
                 builder.setOnDismissListener {
                     requestPermissions( arrayOf(
                         Manifest.permission.ACCESS_FINE_LOCATION
-                    ), PERMISSION_REQUEST_COARSE_LOCATION);
+                    ), PERMISSION_REQUEST_COARSE_LOCATION)
                     startRanging()
                 }
-                builder.show();
+                builder.show()
             }
             else{
                 startRanging()
