@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Labo3">
         <activity
-            android:name="ch.heigvd.iict.sym.labo3.MainActivity"
+            android:name=".NFCActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

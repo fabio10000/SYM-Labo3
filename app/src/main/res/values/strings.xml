@@ -3,5 +3,10 @@
     <string name="barCode_btn">code-barre</string>
     <string name="beacon_btn">Beacon</string>
     <string name="nfc_btn">NFC</string>
-
+    <string name="login_txt">Username</string>
+    <string name="password_txt">Password</string>
+    <string name="login_btn">Connect</string>
+    <string name="low_security_txt">Min security</string>
+    <string name="medium_security_txt">Medium security</string>
+    <string name="high_security_txt">Max security</string>
 </resources>
